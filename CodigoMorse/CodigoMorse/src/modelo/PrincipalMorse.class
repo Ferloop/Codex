@@ -1,0 +1,559 @@
+//By Fer Lopez E
+
+package modelo;
+
+import java.util.StringTokenizer;
+
+import javax.swing.JOptionPane;
+
+public class PrincipalMorse{
+
+	public static void main(String[] args) {
+			int op;
+			do{
+				op=menu();
+			switch (op){
+			case 1:
+				int opc;
+		        do{
+		        	
+		        	String cad;
+		    		String cadena;
+		    		String morse;
+		    		String convert=" ";
+		    		cadena=JOptionPane.showInputDialog("Ingrese una cadena de caracteres");
+		    		for (int i = 0; i < cadena.length(); i++) {
+		    			 cad = cadena.charAt(i) + "";
+		    			 morse=convierteM(cad);
+		    			
+		    			if (morse.equals("")) {
+		    				convert=convert+" "+" "+" ";
+		    				
+		    			} else {
+		    				convert=convert+morse;
+		    				
+		    				if (!morse.equals(" ")) {
+		    					convert=convert+" ";
+		    					
+		    				}
+		    				
+		    			}
+		    		}
+		    		JOptionPane.showMessageDialog(null, "La cadena en codigo morse es: "+ convert);
+		    		
+		        	
+		     	
+		     	op=JOptionPane.showConfirmDialog(null,"Desea realizar una nueva conversion ",null,JOptionPane.YES_NO_OPTION);
+		        }while(op==JOptionPane.YES_OPTION);
+		     
+
+
+							
+				break;
+			case 2:
+				int opcion;
+				do{
+					String morse;
+					String mo="";
+					String cadena="";
+					
+					morse=JOptionPane.showInputDialog("Ingrese el codigo morse");
+					StringTokenizer token=new StringTokenizer(morse);
+					while (token.hasMoreTokens()) {
+						System.out.println(token.nextToken());	
+					}
+					
+					System.out.println("\n\n");
+					String[] cad=morse.split("\\ ");
+					int j=0;
+					while (j<=cad.length-1) {	
+							System.out.println(cad[j]);
+							cadena=convierteC(cad[j]);
+							mo=mo+cadena;
+							j++;
+					}
+					
+					
+					JOptionPane.showMessageDialog(null, "El codigo morse en cadena de caracteres es: "+ mo);
+	     		
+	     	     opcion=JOptionPane.showConfirmDialog(null,"Desea realizar una nueva conversion",null,JOptionPane.YES_NO_CANCEL_OPTION);
+	    		}while(opcion==JOptionPane.YES_OPTION);	
+	     		
+					
+				break;
+			}
+		}while(op!=3);
+		
+	}
+	
+	private static int menu(){
+		String menu="";
+		int op;
+		menu+="1.-Convertir cadena/morse\n";
+		menu+="2.-Convertir morse/cadena\n";
+		menu+="3.-Salir\n";
+		menu+="Seleccione su opcion\n";
+		do{ 
+		 op=Integer.parseInt(JOptionPane.showInputDialog(menu));
+		}while(op<1||op>3);
+		return op;
+	}
+	
+	public static String convierteM(String caracter){  
+
+        String morse = caracter;  
+          //abecedario
+        if (caracter.equalsIgnoreCase("a")){
+        	morse = ".-"; 
+        }else{
+        	
+        	if (caracter.equalsIgnoreCase("b")){
+            	morse = "-..."; 
+            	
+            }else{
+            	
+            	if (caracter.equalsIgnoreCase("c")){
+               	 morse = "-.-.";
+               	 
+               }else{
+            	   
+            	   if (caracter.equalsIgnoreCase("d")){
+            		   morse = "-..";
+            		   
+            	   }else{
+            		   
+            		   if (caracter.equalsIgnoreCase("e")){
+            	        	morse = ".";
+            	        	
+            	        }else{
+            	        	
+            	        	if (caracter.equalsIgnoreCase("f")){
+            	           	 morse = "..-."; 
+            	           	 
+            	           }else{
+            	        	   
+            	        	   if (caracter.equalsIgnoreCase("g")){
+            	               	morse = "--.";
+            	               	
+            	               }else{
+            	               	
+            	               	 if (caracter.equalsIgnoreCase("h")){
+            	                    	morse = "....";
+            	                    	
+            	                    }else{
+            	                    	 if (caracter.equalsIgnoreCase("i")){
+            	                         	morse = "..";
+            	                         	
+            	                         }else{
+            	                         	
+            	                         	if (caracter.equalsIgnoreCase("j")){
+            	                            	 morse = ".---";
+            	                            	 
+            	                            }else{
+            	                         	   
+            	                         	   if (caracter.equalsIgnoreCase("k")){
+            	                               	 morse = "-.-"; 
+            	                               	 
+            	                               }else{
+            	                               	
+            	                               	if (caracter.equalsIgnoreCase("l")){
+            	                                   	morse = ".-..";
+            	                                   	
+            	                                   }else{
+            	                                	   if (caracter.equalsIgnoreCase("m")){
+            	                                       	morse = "--"; 
+            	                                       	
+            	                                       }else{
+            	                                       	
+            	                                       	if (caracter.equalsIgnoreCase("n")){
+            	                                           	morse = "-.";
+            	                                           	
+            	                                           }else{
+            	                                           	
+            	                                           	if (caracter.equalsIgnoreCase("o")){
+            	                                               	morse = "---";
+            	                                               	
+            	                                               }else{
+            	                                               	
+            	                                               	if (caracter.equalsIgnoreCase("p")){
+            	                                                   	morse = ".--."; 
+            	                                                   	
+            	                                                   }else{
+            	                                                	   
+            	                                                	   if (caracter.equalsIgnoreCase("q")){
+            	                                                       	morse = "--.-";
+            	                                                       	
+            	                                                       }else{
+            	                                                       	
+            	                                                       	 if (caracter.equalsIgnoreCase("r")){
+            	                                                           	 morse = ".-.";
+            	                                                           	 
+            	                                                           }else{
+            	                                                           	
+            	                                                           	if (caracter.equalsIgnoreCase("s")){
+            	                                                               	morse = "...";
+            	                                                               	
+            	                                                               }else{
+            	                                                                   
+            	                                                                   if (caracter.equalsIgnoreCase("t")){
+            	                                                                   	morse = "-"; 
+            	                                                                   	
+            	                                                                   }else{
+            	                                                                   	
+            	                                                                   }
+            	                                                                        
+            	                                                                   if (caracter.equalsIgnoreCase("u")){
+            	                                                                   	morse = "..-"; 
+            	                                                                   	
+            	                                                                   }else{
+            	                                                                   	
+            	                                                                   	if (caracter.equalsIgnoreCase("v")){
+            	                                                                       	morse = "...-";
+            	                                                                       	
+            	                                                                       }else{
+            	                                                                       	
+            	                                                                       	if (caracter.equalsIgnoreCase("w")){
+            	                                                                           	morse = ".--"; 
+            	                                                                           	
+            	                                                                           }else{
+            	                                                                           	
+            	                                                                               
+            	                                                                               if (caracter.equalsIgnoreCase("x")){
+            	                                                                               	morse = "-..-";
+            	                                                                               	
+            	                                                                               }else{
+            	                                                                               	
+            	                                                                                   if (caracter.equalsIgnoreCase("y")){
+            	                                                                                   	morse = "-.--";
+            	                                                                                   	
+            	                                                                                   }else{
+            	                                                                                   	
+            	                                                                                   	 if (caracter.equalsIgnoreCase("z")){
+            	                                                                                        	morse = "--.."; 
+            	                                                                                        	
+            	                                                                                        }else{
+            	                                                                                        	//numeros
+            	                                                                                        	if (caracter.equalsIgnoreCase("1")){
+            	                                                                                            	morse = ".----";
+            	                                                                                            	
+            	                                                                                            }else{
+            	                                                                                            	
+            	                                                                                                if (caracter.equalsIgnoreCase("2")){
+            	                                                                                                	morse = "..---";
+            	                                                                                                	
+            	                                                                                                }else{
+            	                                                                                                	
+            	                                                                                                	if (caracter.equalsIgnoreCase("3")){
+            	                                                                                                    	morse = "...--"; 
+            	                                                                                                    	
+            	                                                                                                    }else{
+            	                                                                                                    	
+            	                                                                                                    	 if (caracter.equalsIgnoreCase("4")){
+            	                                                                                                         	morse = "....-"; 
+            	                                                                                                         	
+            	                                                                                                         }else{
+            	                                                                                                         	
+            	                                                                                                         	 if (caracter.equalsIgnoreCase("5")){
+            	                                                                                                              	morse = ".....";
+            	                                                                                                              	
+            	                                                                                                              }else{
+            	                                                                                                              	
+            	                                                                                                              	 if (caracter.equalsIgnoreCase("6")){
+            	                                                                                                                   	morse = "-....";
+            	                                                                                                                   	
+            	                                                                                                                   }else{
+            	                                                                                                                   	
+            	                                                                                                                   	if (caracter.equalsIgnoreCase("7")){
+            	                                                                                                                       	morse = "--..."; 
+            	                                                                                                                       	
+            	                                                                                                                       }else{
+            	                                                                                                                       	
+            	                                                                                                                       	  if (caracter.equalsIgnoreCase("8")){
+            	                                                                                                                             	morse = "---..";
+            	                                                                                                                             	
+            	                                                                                                                             }else{
+            	                                                                                                                             	
+            	                                                                                                                             	 if (caracter.equalsIgnoreCase("9")){
+            	                                                                                                                                 	 morse = "----."; 
+            	                                                                                                                                 	
+            	                                                                                                                                 }else{
+            	                                                                                                                                 	
+            	                                                                                                                                 	if (caracter.equalsIgnoreCase("0")){
+            	                                                                                                                                     	morse = "-----";
+            	                                                                                                                                     	
+            	                                                                                                                                     }else{
+            	                                                                                                                                     	
+            	                                                                                                                                     	
+            	                                                                                                                                     }
+            	                                                                                                                                 }
+            	                                                                                                                             }
+            	                                                                                                                       }
+            	                                                                                                                   }
+            	                                                                                                              }
+            	                                                                                                         }
+            	                                                                                                             
+            	                                                                                                    }
+            	                                                                                                }
+            	                                                                                            }
+            	                                                                                        }
+            	                                                                                   }
+            	                                                                               }
+            	                                                                           }
+            	                                                                       }
+            	                                                                   }
+            	                                                               }
+            	                                                           }
+            	                                                       }
+            	                                                   }
+            	                                               }
+            	                                           }
+            	                                       }
+            	                                   }
+            	                               }
+            	                            }
+            	                         }
+            	                    }
+            	               }
+            	           }
+            	        } 
+            		   
+            	   }
+                       
+               }
+            }
+        	
+        }
+             
+        return morse;      
+    }
+	
+	
+	public static String convierteC(String morse){  
+        String caracter = morse;  
+          //abecedario
+        if (morse.equalsIgnoreCase(".-")){
+        	caracter = "a"; 
+        }else{
+        	
+        	if (morse.equalsIgnoreCase("-...")){
+        		caracter = "b"; 
+            	
+            }else{
+            	
+            	if (morse.equalsIgnoreCase("-.-.")){
+            		caracter = "c";
+               	 
+               }else{
+            	   
+            	   if (morse.equalsIgnoreCase("-..")){
+            		   caracter = "d";
+            		   
+            	   }else{
+            		   
+            		   if (morse.equalsIgnoreCase(".")){
+            			   caracter = "e";
+            	        	
+            	        }else{
+            	        	
+            	        	if (morse.equalsIgnoreCase("..-.")){
+            	        		caracter = "f"; 
+            	           	 
+            	           }else{
+            	        	   
+            	        	   if (morse.equalsIgnoreCase("--.")){
+            	        		   caracter = "g";
+            	               	
+            	               }else{
+            	               	
+            	               	 if (morse.equalsIgnoreCase("....")){
+            	               		caracter = "h";
+            	                    	
+            	                    }else{
+            	                    	 if (morse.equalsIgnoreCase("..")){
+            	                    		 caracter = "i";
+            	                         	
+            	                         }else{
+            	                         	
+            	                         	if (morse.equalsIgnoreCase(".---")){
+            	                         		caracter = "j";
+            	                            	 
+            	                            }else{
+            	                         	   
+            	                         	   if (morse.equalsIgnoreCase("-.-")){
+            	                         		  caracter = "k"; 
+            	                               	 
+            	                               }else{
+            	                               	
+            	                               	if (morse.equalsIgnoreCase(".-..")){
+            	                               		caracter = "l";
+            	                                   	
+            	                                   }else{
+            	                                	   if (morse.equalsIgnoreCase("--")){
+            	                                		   caracter = "m"; 
+            	                                       	
+            	                                       }else{
+            	                                       	
+            	                                       	if (morse.equalsIgnoreCase("-.")){
+            	                                       		caracter = "n";
+            	                                           	
+            	                                           }else{
+            	                                           	
+            	                                           	if (morse.equalsIgnoreCase("---")){
+            	                                           		caracter = "o";
+            	                                               	
+            	                                               }else{
+            	                                               	
+            	                                               	if (morse.equalsIgnoreCase(".--.")){
+            	                                               		caracter = "p"; 
+            	                                                   	
+            	                                                   }else{
+            	                                                	   
+            	                                                	   if (morse.equalsIgnoreCase("--.-")){
+            	                                                		   caracter = "q";
+            	                                                       	
+            	                                                       }else{
+            	                                                       	
+            	                                                       	 if (morse.equalsIgnoreCase(".-.")){
+            	                                                       		caracter = "r";
+            	                                                           	 
+            	                                                           }else{
+            	                                                           	
+            	                                                           	if (morse.equalsIgnoreCase("...")){
+            	                                                           		caracter = "s";
+            	                                                               	
+            	                                                               }else{
+            	                                                                   
+            	                                                                   if (morse.equalsIgnoreCase("-")){
+            	                                                                	   caracter = "t"; 
+            	                                                                   	
+            	                                                                   }else{
+            	                                                                   	
+            	                                                                   }
+            	                                                                        
+            	                                                                   if (morse.equalsIgnoreCase("..-")){
+            	                                                                	   caracter= "u"; 
+            	                                                                   	
+            	                                                                   }else{
+            	                                                                   	
+            	                                                                   	if(morse.equalsIgnoreCase("...-")){
+            	                                                                   		caracter = "v";
+            	                                                                       	
+            	                                                                       }else{
+            	                                                                       	
+            	                                                                       	if (morse.equalsIgnoreCase(".--")){
+            	                                                                       		caracter = "w"; 
+            	                                                                           	
+            	                                                                           }else{
+            	                                                                           	
+            	                                                                               
+            	                                                                               if (morse.equalsIgnoreCase("-..-")){
+            	                                                                            	   caracter = "x";
+            	                                                                               	
+            	                                                                               }else{
+            	                                                                               	
+            	                                                                                   if (morse.equalsIgnoreCase("-.--")){
+            	                                                                                	   caracter = "y";
+            	                                                                                   	
+            	                                                                                   }else{
+            	                                                                                   	
+            	                                                                                   	 if (morse.equalsIgnoreCase("--..")){
+            	                                                                                   		caracter = "z"; 
+            	                                                                                        	
+            	                                                                                        }else{
+            	                                                                                        	//numeros
+            	                                                                                        	if (morse.equalsIgnoreCase(".----")){
+            	                                                                                        		caracter = "1";
+            	                                                                                            	
+            	                                                                                            }else{
+            	                                                                                            	
+            	                                                                                                if (morse.equalsIgnoreCase("..---")){
+            	                                                                                                	caracter = "2";
+            	                                                                                                	
+            	                                                                                                }else{
+            	                                                                                                	
+            	                                                                                                	if (morse.equalsIgnoreCase("...--")){
+            	                                                                                                		caracter = "3"; 
+            	                                                                                                    	
+            	                                                                                                    }else{
+            	                                                                                                    	
+            	                                                                                                    	 if (morse.equalsIgnoreCase("....-")){
+            	                                                                                                    		 caracter = "4"; 
+            	                                                                                                         	
+            	                                                                                                         }else{
+            	                                                                                                         	
+            	                                                                                                         	 if (morse.equalsIgnoreCase(".....")){
+            	                                                                                                         		caracter = "5";
+            	                                                                                                              	
+            	                                                                                                              }else{
+            	                                                                                                              	
+            	                                                                                                              	 if (morse.equalsIgnoreCase("-....")){
+            	                                                                                                              		caracter = "6";
+            	                                                                                                                   	
+            	                                                                                                                   }else{
+            	                                                                                                                   	
+            	                                                                                                                   	if (morse.equalsIgnoreCase("--...")){
+            	                                                                                                                   		caracter = "7"; 
+            	                                                                                                                       	
+            	                                                                                                                       }else{
+            	                                                                                                                       	
+            	                                                                                                                       	  if (morse.equalsIgnoreCase("---..")){
+            	                                                                                                                       		  caracter = "8";
+            	                                                                                                                             	
+            	                                                                                                                             }else{
+            	                                                                                                                             	
+            	                                                                                                                             	 if (morse.equalsIgnoreCase("----.")){
+            	                                                                                                                             		caracter = "9"; 
+            	                                                                                                                                 	
+            	                                                                                                                                 }else{
+            	                                                                                                                                 	
+            	                                                                                                                                 	if (morse.equalsIgnoreCase("-----")){
+            	                                                                                                                                 		caracter = "0";
+            	                                                                                                                                     	
+            	                                                                                                                                     }else{
+            	                                                                                                                                     	
+            	                                                                                                                                     	
+            	                                                                                                                                     }
+            	                                                                                                                                 }
+            	                                                                                                                             }
+            	                                                                                                                       }
+            	                                                                                                                   }
+            	                                                                                                              }
+            	                                                                                                         }
+            	                                                                                                             
+            	                                                                                                    }
+            	                                                                                                }
+            	                                                                                            }
+            	                                                                                        }
+            	                                                                                   }
+            	                                                                               }
+            	                                                                           }
+            	                                                                       }
+            	                                                                   }
+            	                                                               }
+            	                                                           }
+            	                                                       }
+            	                                                   }
+            	                                               }
+            	                                           }
+            	                                       }
+            	                                   }
+            	                               }
+            	                            }
+            	                         }
+            	                    }
+            	               }
+            	           }
+            	        } 
+            		   
+            	   }
+                       
+               }
+            }
+        	
+        }
+             
+        return caracter;      
+    }
+
+
+}
